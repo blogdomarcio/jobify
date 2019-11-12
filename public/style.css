@@ -1,0 +1,60 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.titulo {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.logo {
+    margin: 20px
+}
+
+.roles {
+    position: absolute;
+    width: 869px;
+    height: 68px;
+    left: 286px;
+    background: #C4C4C4;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.openroles {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+    color: #000000;
+    padding: 15px
+}
+
+.sub {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.espaco {
+    margin-top: 40px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-left: 20px;
+}
