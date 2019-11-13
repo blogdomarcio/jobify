@@ -14,6 +14,8 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
+const port = process.env.PORT || 3000
+
 app.get('/', async(resquest, response) => {
 
     const db = await dbConnnection
@@ -37,8 +39,8 @@ app.get('/vaga/:id', async(req, res) => {
     const db = await dbConnnection
     const vaga = await db.get('select * from vagas where id = ' + req.params.id)
 
-    console.log(vaga)
-    console.log(req.params)
+    // console.log(vaga)
+    // console.log(req.params)
     res.render('vaga', {
         vaga
     })
@@ -166,7 +168,7 @@ const init = async() => {
 }
 init()
 
-app.listen(3000, (err) => {
+app.listen(port, (err) => {
     if (err) {
         console.log('Erro ao iniciar servidor')
     } else {
