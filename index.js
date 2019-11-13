@@ -19,6 +19,14 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
+app.use('/admin', (req, res, next) => {
+    if (req.hostname === 'loc2alhost') {
+        next()
+    } else {
+        res.render('admin/semacesso')
+    }
+})
+
 const port = process.env.PORT || 3000
 
 app.get('/', async(resquest, response) => {
