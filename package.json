@@ -1,33 +1,33 @@
 {
-  "name": "jobify",
-  "version": "1.0.0",
-  "description": "Projeto desenvolvido no curso FullStack Master - Dev Pleno para cadastro de Jobs (Vagas de Empregos)",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/blogdomarcio/jobify.git"
-  },
-  "keywords": [
-    "jobs",
-    "devpleno",
-    "blogdomarcio"
-  ],
-  "author": "Claudio Marcio - @blogdomarcio",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/blogdomarcio/jobify/issues"
-  },
-  "homepage": "https://github.com/blogdomarcio/jobify#readme",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "ejs": "^2.7.1",
-    "express": "^4.17.1",
-    "sqlite": "^3.0.3"
-  },
-  "devDependencies": {
-    "nodemon": "^1.19.4"
-  }
+    "name": "jobify",
+    "version": "1.0.0",
+    "description": "Projeto desenvolvido no curso FullStack Master - Dev Pleno para cadastro de Jobs (Vagas de Empregos)",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/blogdomarcio/jobify.git"
+    },
+    "keywords": [
+        "jobs",
+        "devpleno",
+        "blogdomarcio"
+    ],
+    "author": "Claudio Marcio - @blogdomarcio",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/blogdomarcio/jobify/issues"
+    },
+    "homepage": "https://github.com/blogdomarcio/jobify#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "ejs": "^2.7.1",
+        "express": "^4.17.1",
+        "sqlite": "^3.0.3"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.4"
+    }
 }
