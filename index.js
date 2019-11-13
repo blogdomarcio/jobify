@@ -9,6 +9,7 @@ const path = require('path')
 
 const dbConnnection = sqlite.open(path.resolve(__dirname, 'banco.sqlite'), { Promise })
 
+app.set('views', path.resolve(__dirname, 'views'))
 app.set('view engine', 'ejs') app.use(express.static('public'))
 
 app.use(bodyParser.urlencoded({
