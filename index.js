@@ -49,7 +49,13 @@ app.get('/admin', async(req, res) => {
 })
 
 app.get('/admin/categorias', async(req, res) => {
-    res.render('admin/categorias')
+
+    const db = await dbConnnection
+
+    const categorias = await db.all('select * from categorias;')
+
+
+    res.render('admin/categorias', { categorias })
 })
 
 app.get('/admin/vagas', async(req, res) => {
@@ -81,6 +87,58 @@ app.get('/admin/vagas/cadastrar/', async(req, res) => {
     res.render('admin/cadastro', { categorias })
 })
 
+app.get('/admin/vagas/editar/:id', async(req, res) => {
+
+    const db = await dbConnnection
+
+    const categorias = await db.all('select * from categorias;')
+
+    const vaga = await db.get('select * from vagas where id =' + req.params.id + '')
+
+    res.render('admin/editar-vaga', { categorias, vaga })
+})
+
+app.post('/admin/vagas/editar/:id', async(req, res) => {
+
+    const db = await dbConnnection
+
+    const { id } = req.params
+
+    const { categoria, titulo, descricao } = req.body
+
+    await db.run(`update vagas set categoria = '${categoria}', titulo = '${titulo}', descricao = '${descricao}' where id = ${id} `)
+
+    res.redirect('/admin/vagas')
+
+})
+
+app.get('/admin/categoria/cadastrar/', async(req, res) => {
+
+    res.render('admin/cadastroCategoria')
+})
+
+app.post('/admin/categoria/cadastrar/', async(req, res) => {
+
+    const db = await dbConnnection
+
+    const { categoria } = req.body
+
+    await db.run(`insert into categorias(categoria) values('${categoria}') `)
+
+    res.redirect('/admin/categorias')
+})
+
+.get('/admin/categoria/excluir/:id', async(req, res) => {
+
+    const db = await dbConnnection
+
+    await db.run('delete from categorias where id =' + req.params.id + '')
+
+    res.redirect('/admin/categorias')
+})
+
+
+
 
 app.post('/admin/vagas/cadastrar/', async(req, res) => {
 
@@ -94,9 +152,6 @@ app.post('/admin/vagas/cadastrar/', async(req, res) => {
 
 
 })
-
-
-
 
 
 
