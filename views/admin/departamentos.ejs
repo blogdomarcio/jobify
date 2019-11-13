@@ -9,10 +9,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/admin">Admin <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link " href="/admin">Admin <span class="sr-only">(current)</span></a>
 
-                <a class="nav-item nav-link" href="/admin/departamentos">Departamentos</a>
-                <a class="nav-item nav-link active" href="/admin/vagas">Vagas</a>
+                <a class="nav-item nav-link active" href="/admin/departamentos">Departamentos</a>
+                <a class="nav-item nav-link" href="/admin/vagas">Vagas</a>
                 <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
             </div>
         </div>
@@ -22,50 +22,49 @@
 
     <div class="container text-center">
 
-        <a href="/admin"> <img src="/images/logo.png" alt="JobiFy - DevPleno" class="logo img-fluid"></a>
+        <a href="/admin"> <img src="/images/logo.png" alt="JobiFy - DevPleno" class="logo img-fluid"> </a>
 
-        <h4 class="titulo text-center">VAGAS</h4>
-        <br>
-        <a type="button" href="/admin/vagas/cadastrar/" class="btn btn-primary btn-block"><i class="fas fa-plus-circle"></i> Cadastrar Vaga</a>
-
-        <hr>
     </div>
+
     <div class="container ">
 
+        <h4 class="titulo text-center">Departamentos</h4>
+        <br>
+        <a type="button" href="/admin/departamento/cadastrar/" class="btn btn-primary btn-block"><i class="fas fa-plus-circle"></i> Cadastrar Departamento  </a>
+
+
+        <hr>
 
         <div class="container">
             <table class="table table-striped table-inverse  ">
                 <thead class="thead-inverse">
                     <tr>
-                        <th>Titulo</th>
+                        <th>Departamento</th>
                         <th class="text-center">Editar</th>
                         <th class="text-center">Excluir</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% vagas.forEach( vaga => { %>
+                    <% categorias.forEach( categoria => { %>
                         <tr>
                             <td scope="row">
-                                <a href="/vaga/<%- vaga.id %>" target="_blank">
-                                    <%- vaga.titulo %>
-                                </a>
+                                <%- categoria.categoria %>
+                                    <td class="text-center">
+                                        <a href="/admin/departamento/editar/<%- categoria.id %>"> <i class="fas fa-edit"></i> </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="/admin/departamento/excluir/<%- categoria.id %>"> <i class="fas fa-trash-alt"></i> </a>
+                                    </td>
                             </td>
-                            <td class="text-center">
-                                <a href="/admin/vagas/editar/<%- vaga.id %>"> <i class="fas fa-edit"></i> </a>
-                            </td>
-
-                            <td class="text-center">
-                                <a href="/admin/vagas/excluir/<%- vaga.id %>"> <i class="fas fa-trash-alt"></i> </a>
-                            </td>
-
+                            <%  }) %>
                         </tr>
-                        <%  }) %>
-
                 </tbody>
             </table>
         </div>
 
+
     </div>
+
 
 
     <br>

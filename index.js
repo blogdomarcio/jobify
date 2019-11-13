@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.use('/admin', (req, res, next) => {
-    if (req.hostname === 'loc2alhost') {
+    if (req.hostname === 'localhost') {
         next()
     } else {
         res.render('admin/semacesso')
@@ -63,14 +63,14 @@ app.get('/admin', async(req, res) => {
     res.render('admin/home')
 })
 
-app.get('/admin/categorias', async(req, res) => {
+app.get('/admin/departamentos', async(req, res) => {
 
     const db = await dbConnnection
 
     const categorias = await db.all('select * from categorias;')
 
 
-    res.render('admin/categorias', { categorias })
+    res.render('admin/departamentos', { categorias })
 })
 
 app.get('/admin/vagas', async(req, res) => {
@@ -113,6 +113,16 @@ app.get('/admin/vagas/editar/:id', async(req, res) => {
     res.render('admin/editar-vaga', { categorias, vaga })
 })
 
+app.get('/admin/departamento/editar/:id', async(req, res) => {
+
+    const db = await dbConnnection
+
+    const categoria = await db.get('select * from categorias where id =' + req.params.id + '')
+
+    res.render('admin/editar-departamento', { categoria })
+})
+
+
 app.post('/admin/vagas/editar/:id', async(req, res) => {
 
     const db = await dbConnnection
@@ -127,12 +137,27 @@ app.post('/admin/vagas/editar/:id', async(req, res) => {
 
 })
 
-app.get('/admin/categoria/cadastrar/', async(req, res) => {
 
-    res.render('admin/cadastroCategoria')
+app.post('/admin/departamento/editar/:id', async(req, res) => {
+
+    const db = await dbConnnection
+
+    const { id } = req.params
+
+    const { categoria } = req.body
+
+    await db.run(`update categorias set categoria = '${categoria}' where id = ${id} `)
+
+    res.redirect('/admin/departamentos')
+
 })
 
-app.post('/admin/categoria/cadastrar/', async(req, res) => {
+app.get('/admin/departamento/cadastrar/', async(req, res) => {
+
+    res.render('admin/cadastroDepartamento')
+})
+
+app.post('/admin/departamento/cadastrar/', async(req, res) => {
 
     const db = await dbConnnection
 
@@ -140,16 +165,16 @@ app.post('/admin/categoria/cadastrar/', async(req, res) => {
 
     await db.run(`insert into categorias(categoria) values('${categoria}') `)
 
-    res.redirect('/admin/categorias')
+    res.redirect('/admin/departamentos')
 })
 
-.get('/admin/categoria/excluir/:id', async(req, res) => {
+.get('/admin/departamento/excluir/:id', async(req, res) => {
 
     const db = await dbConnnection
 
     await db.run('delete from categorias where id =' + req.params.id + '')
 
-    res.redirect('/admin/categorias')
+    res.redirect('/admin/departamentos')
 })
 
 

@@ -11,7 +11,7 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="/admin">Admin <span class="sr-only">(current)</span></a>
 
-                <a class="nav-item nav-link" href="/admin/categorias">Categorias</a>
+                <a class="nav-item nav-link" href="/admin/departamentos">Departamentos</a>
                 <a class="nav-item nav-link active" href="/admin/vagas">Vagas</a>
                 <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
             </div>
@@ -22,23 +22,23 @@
 
     <div class="container text-center">
 
-        <img src="/images/logo.png" alt="JobiFy - DevPleno" width="350px" class="logo">
+        <img src="/images/logo.png" alt="JobiFy - DevPleno" width="350px" class="logo img-fluid">
 
     </div>
 
     <div class="container ">
 
-        <h4 class="titulo text-center">VAGAS - ADCIONAR NOVA</h4>
-
+        <h4 class="titulo text-center"> VAGAS - ADCIONAR NOVA</h4>
+        <hr>
 
         <form method="POST">
             <div class="form-row">
 
                 <div class="form-group col-md-4">
-                    <label for="categoria">Selecione a Categoria</label>
+                    <label for="categoria">Selecione o Departamento</label>
                     <select class="form-control" name="categoria" id="categoria" required>
                        
-                        <option value=""> Selecione a Categoria </option>
+                        <option value=""> Selecione a Departamento </option>
                         <% categorias.forEach( categoria => { %>
                             <option value="<%- categoria.id %>">
 
@@ -61,7 +61,11 @@
                 <input type="text" class="form-control" id="descricao" name="descricao" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary  btn-block">Cadastrar</button>
+
+            <hr>
+
+            <a href="/admin" class="btn btn-warning btn-block"> Voltar </a>
     </div>
 
 
