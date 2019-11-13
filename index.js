@@ -10,7 +10,10 @@ const path = require('path')
 const dbConnnection = sqlite.open(path.resolve(__dirname, 'banco.sqlite'), { Promise })
 
 app.set('views', path.resolve(__dirname, 'views'))
-app.set('view engine', 'ejs') app.use(express.static('public'))
+
+app.set('view engine', 'ejs')
+
+app.use(express.static('public'))
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -171,9 +174,11 @@ const init = async() => {
 init()
 
 app.listen(port, (err) => {
-    if (err) {
-        console.log('Erro ao iniciar servidor')
-    } else {
-        console.log('Servidor Jobify iniciado com sucesso - @blogdomarcio')
+        if (err) {
+            console.log('Erro ao iniciar servidor')
+        } else {
+            console.log('Servidor Jobify iniciado com sucesso - @blogdomarcio')
+        }
     }
-})
+
+)
