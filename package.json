@@ -4,8 +4,7 @@
     "description": "Projeto desenvolvido no curso FullStack Master - Dev Pleno para cadastro de Jobs (Vagas de Empregos)",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js",
-        "build": "node index.js"
+        "start": "node index.js"
     },
     "repository": {
         "type": "git",
