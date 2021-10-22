@@ -4,7 +4,7 @@ const app = express()
 
 const sqlite = require('sqlite')
 
-const sqlite3 = require('sqlite3')
+const sqlite3 = require('sqlite3').verbose();
 
 const path = require('path')
 
@@ -13,11 +13,19 @@ const path = require('path')
 //     driver: sqlite3.Database,
 // }, { Promise })
 
-const dbConnection = sqlite.open({ filename: 'banco.sqlite', driver: sqlite3.Database }, { Promise })
+// const dbConnection = sqlite.open({ filename: 'banco.sqlite', driver: sqlite3.Database }, { Promise })
 
 // const dbConnection = sqlite.open(path.resolve(__dirname, 'banco.sqlite'), { Promise })
 
 // const dbConnection = sqlite.open('banco.sqlite', { Promise })
+
+
+const dbConnection = new sqlite3.Database(path.resolve(__dirname, 'database.sqlite'), (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+    //console.log('Connected to the database.');
+});
 
 app.set('views', path.resolve(__dirname, 'views'))
 
