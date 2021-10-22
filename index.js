@@ -8,10 +8,12 @@ const sqlite3 = require('sqlite3')
 
 const path = require('path')
 
-const dbConnection = sqlite.open({
-    filename: './banco.sqlite',
-    driver: sqlite3.Database,
-}, { Promise })
+// const dbConnection = sqlite.open({
+//     filename: './banco.sqlite',
+//     driver: sqlite3.Database,
+// }, { Promise })
+
+const dbConnection = sqlite.open({ filename: 'banco.sqlite', driver: sqlite3.Database }, { Promise })
 
 
 // const dbConnection = sqlite.open('banco.sqlite', { Promise })
