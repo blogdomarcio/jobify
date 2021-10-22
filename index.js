@@ -20,7 +20,7 @@ const path = require('path')
 // const dbConnection = sqlite.open('banco.sqlite', { Promise })
 
 
-const dbConnection = new sqlite3.Database(path.resolve(__dirname, 'database.sqlite'), (err) => {
+const dbConnection = new sqlite3.Database(path.resolve(__dirname, 'banco.sqlite'), (err) => {
     if (err) {
         console.error(err.message);
     }
