@@ -3,10 +3,6 @@
     "version": "1.0.0",
     "description": "Projeto desenvolvido no curso FullStack Master - Dev Pleno para cadastro de Jobs (Vagas de Empregos)",
     "main": "index.js",
-    "scripts": {
-        "start": "node index.js",
-        "build": "curl $DB_URL -o banco.sqlite && next build"
-    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/blogdomarcio/jobify.git"
